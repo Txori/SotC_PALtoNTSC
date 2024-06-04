@@ -1,7 +1,7 @@
 /*
     SotC_PALtoNTSC, by Etienne Bégué - www.txori.com
-    Convert Shadow of the Colossus' upscaled texture by Sad Origami
-    from EU (SCES-53326) to US (SCUS-97472) version
+    Convert Shadow of the Colossus' remastered texture by Sad Origami
+    from PAL (SCES-53326) to NTSC (SCUS-97472) version
 
     Compile using w64devkit (https://github.com/skeeto/w64devkit):
     g++ -O3 -std=c++17 -o SotC_PALtoNTSC.exe SotC_PALtoNTSC.cpp -lstdc++fs
