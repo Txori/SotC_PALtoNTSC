@@ -3,7 +3,7 @@ SotC_PALtoNTSC is a simple tool to convert Shadow of the Colossus' remastered te
 
 **Introduction**
 
-Sad Origami is making an incredible work at [remastering the textures of the PS2 game Shadow of the Colossus](https://ko-fi.com/sadorigami), but it only work for the PAL version of the game (SCES-53326). This tool simply gathers, rename and copy its files to make them compatible with the NTSC version of the game (SCUS-97472).
+Sad Origami is making an incredible work at [remastering the textures of the PS2 game Shadow of the Colossus](https://ko-fi.com/sadorigami), but it only works for the PAL version of the game (SCES-53326). This tool simply gathers, rename and copy its files to make them compatible with the NTSC version of the game (SCUS-97472).
 
 
 **Compilation**
