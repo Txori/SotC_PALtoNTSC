@@ -27,10 +27,15 @@ void copyAndRenameFiles(const std::string& sourceDir, const std::string& destina
             std::string sourceFilePath = entry.path().string();
             std::string relativePath = entry.path().lexically_relative(fs::path(sourceDir)).string();
 
+            // Skip files in "5) Bonus Material" folder that aren't present in the NTSC version
+            if (sourceFilePath.find("5) Bonus Material") != std::string::npos) {
+                continue;
+            }
+
             std::string newFilename = convertFileName(entry.path().filename().string());
             std::string destinationFilePath = destinationDir + "/" + newFilename;
 
-            std::cout << "Source file: " << sourceFilePath << std::endl;
+            std::cout << sourceFilePath << std::endl;
 
             try {
                 fs::create_directories(fs::path(destinationFilePath).parent_path());
