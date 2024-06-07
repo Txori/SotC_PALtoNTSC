@@ -8,14 +8,16 @@ Sad Origami is doing incredible work [remastering the textures of the PS2 game S
 
 **Compilation**
 
-Simply use [w64devkit by skeeto](https://github.com/skeeto/w64devkit): ```g++ -O3 -std=c++17 -o SotC_PALtoNTSC.exe SotC_PALtoNTSC.cpp -lstdc++fs```
+Simply compile using the following command: ```g++ -O3 -std=c++17 -o SotC_PALtoNTSC.exe SotC_PALtoNTSC.cpp -lstdc++fs```
+
+For Mac: ```g++ -O3 -std=c++17 -o SotC_PALtoNTSC SotC_PALtoNTSC.cpp```
 
 
 **How to**
 
 1. Follow Sad Origami's instructions to add his texture pack to the PCSX2/textures folder.
-2. Place the SotC_PALtoNTSC.exe file in the PCSX2/textures folder.
-3. Run the exe file. It's done.
+2. Place the output file in the PCSX2/textures folder.
+3. Run the output file. It's done.
 
 **Note**
 
