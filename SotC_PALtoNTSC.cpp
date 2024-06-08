@@ -4,7 +4,7 @@
     from PAL (SCES-53326) to NTSC (SCUS-97472) version
 
     Compile using w64devkit (https://github.com/skeeto/w64devkit):
-    g++ -O3 -std=c++17 -o SotC_PALtoNTSC.exe SotC_PALtoNTSC.cpp -lstdc++fs
+    g++ -O3 -std=c++17 -o SotC_PALtoNTSC.exe SotC_PALtoNTSC.cpp
 */
 
 #include <iostream>
@@ -33,7 +33,8 @@ void copyAndRenameFiles(const std::string& sourceDir, const std::string& destina
             }
 
             std::string newFilename = convertFileName(entry.path().filename().string());
-            std::string destinationFilePath = destinationDir + "/" + newFilename;
+            std::string relativeDir = entry.path().parent_path().lexically_relative(fs::path(sourceDir)).string();
+            std::string destinationFilePath = (fs::path(destinationDir) / fs::path(relativeDir) / newFilename).string();
 
             std::cout << sourceFilePath << std::endl;
 
