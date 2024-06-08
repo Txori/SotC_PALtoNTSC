@@ -21,4 +21,4 @@ For Mac: ```g++ -O3 -std=c++17 -o SotC_PALtoNTSC SotC_PALtoNTSC.cpp```
 
 **Note**
 
-It is possible that this tool can convert other PS2 game texture packs from PAL to NTSC. Simply rename the folders sourceDir and destinationDir in the source code. If that's the case, please let me know, I'll modify the tool to convert any game from PAL to NTSC and vice versa. But right now, I'm under the Shadow of the Colossus.
+It is possible that this tool can convert other PS2 game texture packs from PAL to NTSC. Simply rename the folders SOURCE_DIR and DESTINATION_DIR in the source code. If that's the case, please let me know, I'll modify the tool to convert any game from PAL to NTSC and vice versa. But right now, I'm under the Shadow of the Colossus.
