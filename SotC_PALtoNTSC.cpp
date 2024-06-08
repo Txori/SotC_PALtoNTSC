@@ -11,8 +11,24 @@
 #include <filesystem>
 #include <string>
 
+// Folder paths
+const std::string SOURCE_DIR = "SCES-53326/replacements";
+const std::string DESTINATION_DIR = "SCUS-97472/replacements";
+
 namespace fs = std::filesystem;
 
+// Function to display an exit message and wait for user input
+void exitMessage() {
+    std::cout << std::endl;
+    std::cout << "Press any key to exit" << std::endl;
+#ifdef _WIN32
+    system("pause >nul");
+#else
+    system("read -n 1 -s -r -p \"\"");
+#endif
+}
+
+// Function to convert dds file nomenclature from PAL to NTSC
 std::string convertFileName(const std::string& filename) {
     std::string prefix = filename.substr(0, filename.size() - 8); // Remove the last 8 characters
     int middleNum = filename[filename.size() - 8] - '0' - 4; // Convert middle character to integer and subtract 4
@@ -22,6 +38,11 @@ std::string convertFileName(const std::string& filename) {
 }
 
 void copyAndRenameFiles(const std::string& sourceDir, const std::string& destinationDir) {
+    if (!fs::exists(sourceDir)) {
+        std::cerr << "Error: Source directory '" << sourceDir << "' does not exist." << std::endl;
+        exitMessage();
+    }
+
     for (const auto& entry : fs::recursive_directory_iterator(sourceDir)) {
         if (entry.is_regular_file()) {
             std::string sourceFilePath = entry.path().string();
@@ -52,10 +73,7 @@ void copyAndRenameFiles(const std::string& sourceDir, const std::string& destina
 }
 
 int main() {
-    std::string sourceDir = "SCES-53326/replacements";
-    std::string destinationDir = "SCUS-97472/replacements";
-
-    copyAndRenameFiles(sourceDir, destinationDir);
-
+    copyAndRenameFiles(SOURCE_DIR, DESTINATION_DIR);
+    exitMessage();
     return 0;
 }
