@@ -16,8 +16,8 @@ For Mac: ```g++ -O3 -std=c++17 -o SotC_PALtoNTSC SotC_PALtoNTSC.cpp```
 **How to**
 
 1. Follow Sad Origami's instructions to add his texture pack to the PCSX2/textures folder.
-2. Place the output file in the PCSX2/textures folder.
-3. Run the output file. It's done.
+2. Place SotC_PALtoNTSC.exe file in the PCSX2/textures folder.
+3. Run SotC_PALtoNTSC.exe file. It's done.
 
 **Note**
 
