@@ -10,10 +10,24 @@
 #include <iostream>
 #include <filesystem>
 #include <string>
+#include <unordered_set>
 
 // Folder paths
 const std::string SOURCE_DIR = "SCES-53326/replacements";
 const std::string DESTINATION_DIR = "SCUS-97472/replacements";
+
+// Specific folders to skip, as bonus and translations are not present in the NTSC version
+const std::unordered_set<std::string> FOLDERS_TO_SKIP = {
+    "5) Bonus Material",
+    "2) Spanish UI",
+    "4) French UI",
+    "5) Deutsch UI",
+    "6) Italian UI",
+    "1) Spanish",
+    "3) French",
+    "4) Deutsch",
+    "5) Italian"
+};
 
 namespace fs = std::filesystem;
 
@@ -48,8 +62,15 @@ void copyAndRenameFiles(const std::string& sourceDir, const std::string& destina
             std::string sourceFilePath = entry.path().string();
             std::string relativePath = entry.path().lexically_relative(fs::path(sourceDir)).string();
 
-            // Skip files in "5) Bonus Material" folder that aren't present in the NTSC version
-            if (sourceFilePath.find("5) Bonus Material") != std::string::npos) {
+            // Skip files if they are in a folder that is in the FOLDERS_TO_SKIP set
+            bool shouldSkip = false;
+            for (const auto& folder : FOLDERS_TO_SKIP) {
+                if (sourceFilePath.find(folder) != std::string::npos) {
+                    shouldSkip = true;
+                    break;
+                }
+            }
+            if (shouldSkip) {
                 continue;
             }
 
